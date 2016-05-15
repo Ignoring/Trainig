@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TrainingDAL")]
+[assembly: AssemblyTitle("TraningDAL")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TrainingDAL")]
+[assembly: AssemblyProduct("TraningDAL")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5b5b17f8-3ae7-4e82-8dc4-e2989862ea4b")]
+[assembly: Guid("e4037e09-b91e-4757-8f17-dcbfd723f86c")]
 
 // Version information for an assembly consists of the following four values:
 //

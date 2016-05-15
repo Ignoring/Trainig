@@ -13,7 +13,7 @@
         /// <summary>
         /// Port for connect to MySql
         /// </summary>
-        private const int portMySql = 3309;
+        public static int MySqlPort = 3309;
         /// <summary>
         /// MySql server folder
         /// </summary>
@@ -28,7 +28,7 @@
             Application.SetCompatibleTextRenderingDefault(false);
             Program.MySqlFolder = GetMySqlPath();
             Program.MySql(); // Run MySql server
-            //Application.Run(new Form1());
+            Application.Run(new Training());
             Program.MySql(true); // Run MySql server
         }
 
@@ -37,6 +37,9 @@
         /// </summary>
         private static void MySql(bool runStop = false)
         {
+            var path = GetMySqlPath();
+            if (string.IsNullOrWhiteSpace(path))
+                return;
             var process = new Process();
             // Stop the process from opening a new window
             process.StartInfo.RedirectStandardOutput = true;
@@ -45,15 +48,12 @@
             process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
             // Setup executable and parameters
-            if (runStop)
-                process.StartInfo.FileName += string.Concat(GetMySqlPath(), "\\MySql\\bin\\", "mysqladmin.exe");
-            else
-                process.StartInfo.FileName = string.Concat(GetMySqlPath(), "\\MySql\\bin\\", "mysqld.exe");
+            process.StartInfo.FileName = string.Concat(path, "\\MySql\\bin\\", (runStop ? "mysqladmin.exe" : "mysqld.exe"));
 
             if (runStop)
-                process.StartInfo.Arguments += string.Concat("--user=root --port=", portMySql.ToString(), " shutdown");
+                process.StartInfo.Arguments = string.Concat("--user=root --port=", MySqlPort.ToString(), " shutdown");
             else
-                process.StartInfo.Arguments = string.Concat("--port=", portMySql.ToString(), "");
+                process.StartInfo.Arguments = string.Concat("--port=", MySqlPort.ToString(), "");
 
             process.Start();
         }
@@ -65,9 +65,9 @@
         /// <returns>Path to MySql folder</returns>
         private static string GetMySqlPath(string path = "")
         {
-            var foldersFound = Directory.GetDirectories(AppDomain.CurrentDomain.BaseDirectory, "DataBases", SearchOption.AllDirectories);
+            var foldersFound = Directory.GetDirectories(AppDomain.CurrentDomain.BaseDirectory, "DB", SearchOption.AllDirectories);
             if (foldersFound == null || foldersFound.Length == 0)
-                foldersFound = Directory.GetDirectories(Path.GetFullPath(@"..\..\..\"), "DataBases", SearchOption.AllDirectories);
+                foldersFound = Directory.GetDirectories(Path.GetFullPath(@"..\..\..\"), "DB", SearchOption.AllDirectories);
             return foldersFound != null && foldersFound.Length > 0 ? foldersFound[0] : "";
         }
     }
