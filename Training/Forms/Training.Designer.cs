@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Training));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.File = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,6 +40,11 @@
             this.About = new System.Windows.Forms.ToolStripMenuItem();
             this.Treeview = new System.Windows.Forms.TreeView();
             this.DBview = new System.Windows.Forms.DataGridView();
+            this.DBviewFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DBviewSecondName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DBviewPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DBviewSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DBviewAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.ToolButtonAdd = new System.Windows.Forms.ToolStripButton();
             this.ToolButtonEdit = new System.Windows.Forms.ToolStripButton();
@@ -45,10 +53,12 @@
             this.ToolButtonTest = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ToolButtonReport = new System.Windows.Forms.ToolStripButton();
-            this.DBviewFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DBviewSecondName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DBviewSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DBviewAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Normativs = new System.Windows.Forms.ToolStripMenuItem();
+            this.CoWorkerPositions = new System.Windows.Forms.ToolStripMenuItem();
+            this.CoWorkerQualifications = new System.Windows.Forms.ToolStripMenuItem();
+            this.Quit = new System.Windows.Forms.ToolStripMenuItem();
+            this.SportQualifications = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DBview)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -68,6 +78,9 @@
             // 
             // File
             // 
+            this.File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem,
+            this.Quit});
             this.File.Name = "File";
             this.File.Size = new System.Drawing.Size(37, 20);
             this.File.Text = "File";
@@ -76,7 +89,7 @@
             // 
             this.Options.Name = "Options";
             this.Options.Size = new System.Drawing.Size(61, 20);
-            this.Options.Text = "Options";
+            this.Options.Text = "Settings";
             // 
             // Help
             // 
@@ -101,95 +114,54 @@
             // 
             // Treeview
             // 
-            this.Treeview.Location = new System.Drawing.Point(0, 54);
+            this.Treeview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.Treeview.Location = new System.Drawing.Point(0, 56);
             this.Treeview.Name = "Treeview";
-            this.Treeview.Size = new System.Drawing.Size(218, 291);
+            this.Treeview.Size = new System.Drawing.Size(218, 285);
             this.Treeview.TabIndex = 1;
             // 
             // DBview
             // 
+            this.DBview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DBview.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DBview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DBview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DBview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DBviewFirstName,
             this.DBviewSecondName,
+            this.DBviewPosition,
             this.DBviewSex,
             this.DBviewAge});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DBview.DefaultCellStyle = dataGridViewCellStyle5;
             this.DBview.Location = new System.Drawing.Point(224, 54);
             this.DBview.Name = "DBview";
-            this.DBview.Size = new System.Drawing.Size(613, 291);
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DBview.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.DBview.Size = new System.Drawing.Size(612, 288);
             this.DBview.TabIndex = 2;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolButtonAdd,
-            this.ToolButtonEdit,
-            this.ToolButtonDelete,
-            this.toolStripSeparator1,
-            this.ToolButtonTest,
-            this.toolStripSeparator2,
-            this.ToolButtonReport});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(837, 25);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // ToolButtonAdd
-            // 
-            this.ToolButtonAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolButtonAdd.Image = ((System.Drawing.Image)(resources.GetObject("ToolButtonAdd.Image")));
-            this.ToolButtonAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolButtonAdd.Name = "ToolButtonAdd";
-            this.ToolButtonAdd.Size = new System.Drawing.Size(23, 22);
-            this.ToolButtonAdd.Text = "Add";
-            // 
-            // ToolButtonEdit
-            // 
-            this.ToolButtonEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolButtonEdit.Image = ((System.Drawing.Image)(resources.GetObject("ToolButtonEdit.Image")));
-            this.ToolButtonEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolButtonEdit.Name = "ToolButtonEdit";
-            this.ToolButtonEdit.Size = new System.Drawing.Size(23, 22);
-            this.ToolButtonEdit.Text = "Edit";
-            // 
-            // ToolButtonDelete
-            // 
-            this.ToolButtonDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolButtonDelete.Image = ((System.Drawing.Image)(resources.GetObject("ToolButtonDelete.Image")));
-            this.ToolButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolButtonDelete.Name = "ToolButtonDelete";
-            this.ToolButtonDelete.Size = new System.Drawing.Size(23, 22);
-            this.ToolButtonDelete.Text = "Delete";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // ToolButtonTest
-            // 
-            this.ToolButtonTest.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolButtonTest.Image = ((System.Drawing.Image)(resources.GetObject("ToolButtonTest.Image")));
-            this.ToolButtonTest.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolButtonTest.Name = "ToolButtonTest";
-            this.ToolButtonTest.Size = new System.Drawing.Size(23, 22);
-            this.ToolButtonTest.Text = "Test";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // ToolButtonReport
-            // 
-            this.ToolButtonReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolButtonReport.Image = ((System.Drawing.Image)(resources.GetObject("ToolButtonReport.Image")));
-            this.ToolButtonReport.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolButtonReport.Name = "ToolButtonReport";
-            this.ToolButtonReport.Size = new System.Drawing.Size(23, 22);
-            this.ToolButtonReport.Text = "Report";
             // 
             // DBviewFirstName
             // 
@@ -203,6 +175,12 @@
             this.DBviewSecondName.HeaderText = "Second name";
             this.DBviewSecondName.Name = "DBviewSecondName";
             // 
+            // DBviewPosition
+            // 
+            this.DBviewPosition.HeaderText = "Position";
+            this.DBviewPosition.Name = "DBviewPosition";
+            this.DBviewPosition.Width = 80;
+            // 
             // DBviewSex
             // 
             this.DBviewSex.HeaderText = "Sex";
@@ -214,6 +192,119 @@
             this.DBviewAge.HeaderText = "Age";
             this.DBviewAge.Name = "DBviewAge";
             this.DBviewAge.Width = 50;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolButtonAdd,
+            this.ToolButtonEdit,
+            this.ToolButtonDelete,
+            this.toolStripSeparator1,
+            this.ToolButtonTest,
+            this.toolStripSeparator2,
+            this.ToolButtonReport});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(837, 31);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // ToolButtonAdd
+            // 
+            this.ToolButtonAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolButtonAdd.Image = ((System.Drawing.Image)(resources.GetObject("ToolButtonAdd.Image")));
+            this.ToolButtonAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolButtonAdd.Name = "ToolButtonAdd";
+            this.ToolButtonAdd.Size = new System.Drawing.Size(28, 28);
+            this.ToolButtonAdd.Text = "Add";
+            // 
+            // ToolButtonEdit
+            // 
+            this.ToolButtonEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolButtonEdit.Image = ((System.Drawing.Image)(resources.GetObject("ToolButtonEdit.Image")));
+            this.ToolButtonEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolButtonEdit.Name = "ToolButtonEdit";
+            this.ToolButtonEdit.Size = new System.Drawing.Size(28, 28);
+            this.ToolButtonEdit.Text = "Edit";
+            // 
+            // ToolButtonDelete
+            // 
+            this.ToolButtonDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolButtonDelete.Image = ((System.Drawing.Image)(resources.GetObject("ToolButtonDelete.Image")));
+            this.ToolButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolButtonDelete.Name = "ToolButtonDelete";
+            this.ToolButtonDelete.Size = new System.Drawing.Size(28, 28);
+            this.ToolButtonDelete.Text = "Delete";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            // 
+            // ToolButtonTest
+            // 
+            this.ToolButtonTest.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolButtonTest.Image = ((System.Drawing.Image)(resources.GetObject("ToolButtonTest.Image")));
+            this.ToolButtonTest.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolButtonTest.Name = "ToolButtonTest";
+            this.ToolButtonTest.Size = new System.Drawing.Size(28, 28);
+            this.ToolButtonTest.Text = "Test";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 31);
+            // 
+            // ToolButtonReport
+            // 
+            this.ToolButtonReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolButtonReport.Image = ((System.Drawing.Image)(resources.GetObject("ToolButtonReport.Image")));
+            this.ToolButtonReport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolButtonReport.Name = "ToolButtonReport";
+            this.ToolButtonReport.Size = new System.Drawing.Size(28, 28);
+            this.ToolButtonReport.Text = "Report";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CoWorkerPositions,
+            this.CoWorkerQualifications,
+            this.Normativs,
+            this.SportQualifications});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // Normativs
+            // 
+            this.Normativs.Name = "Normativs";
+            this.Normativs.Size = new System.Drawing.Size(209, 22);
+            this.Normativs.Text = "Normatives";
+            // 
+            // CoWorkerPositions
+            // 
+            this.CoWorkerPositions.Name = "CoWorkerPositions";
+            this.CoWorkerPositions.Size = new System.Drawing.Size(209, 22);
+            this.CoWorkerPositions.Text = "Co-worker position";
+            // 
+            // CoWorkerQualifications
+            // 
+            this.CoWorkerQualifications.Name = "CoWorkerQualifications";
+            this.CoWorkerQualifications.Size = new System.Drawing.Size(209, 22);
+            this.CoWorkerQualifications.Text = "Co-workers qualifications";
+            // 
+            // Quit
+            // 
+            this.Quit.Name = "Quit";
+            this.Quit.Size = new System.Drawing.Size(152, 22);
+            this.Quit.Text = "Quit";
+            // 
+            // SportQualifications
+            // 
+            this.SportQualifications.Name = "SportQualifications";
+            this.SportQualifications.Size = new System.Drawing.Size(209, 22);
+            this.SportQualifications.Text = "Sport qualifications";
             // 
             // Training
             // 
@@ -259,8 +350,15 @@
         private System.Windows.Forms.ToolStripButton ToolButtonReport;
         private System.Windows.Forms.DataGridViewTextBoxColumn DBviewFirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn DBviewSecondName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DBviewPosition;
         private System.Windows.Forms.DataGridViewTextBoxColumn DBviewSex;
         private System.Windows.Forms.DataGridViewTextBoxColumn DBviewAge;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Normativs;
+        private System.Windows.Forms.ToolStripMenuItem CoWorkerPositions;
+        private System.Windows.Forms.ToolStripMenuItem CoWorkerQualifications;
+        private System.Windows.Forms.ToolStripMenuItem Quit;
+        private System.Windows.Forms.ToolStripMenuItem SportQualifications;
     }
 }
 

@@ -80,15 +80,15 @@ namespace TraningDAL.InterfaceBasics
             return false;
         }
 
-        public DataTable GetData(string selectComand)
+        public DataTable GetData(string selectCommand)
         {
-            if (!this.IsConnect() || string.IsNullOrWhiteSpace(selectComand))
+            if (!this.IsConnect() || string.IsNullOrWhiteSpace(selectCommand))
                 return null;
             var table = new DataTable();
             try
             {
                 var ad = new MySqlDataAdapter();
-                ad.SelectCommand = new MySqlCommand(selectComand, this.connector);
+                ad.SelectCommand = new MySqlCommand(selectCommand, this.connector);
                 ad.Fill(table);
             }
             catch (MySqlException ex) { ex.ToString(); }
@@ -97,7 +97,24 @@ namespace TraningDAL.InterfaceBasics
             return table;
         }
 
-        public MySqlConnectorBase(string server = "root", int port = 3309, string user = "root", string password = "")
+        public bool Command(string command)
+        {
+            if (!this.IsConnect() || string.IsNullOrWhiteSpace(command))
+                return false;
+            try
+            {
+                var ad = new MySqlDataAdapter();
+                var comm = new MySqlCommand(command, this.connector);
+                comm.ExecuteNonQuery();
+                return true;
+            }
+            catch (MySqlException ex) { ex.ToString(); }
+            catch (Exception ex) { ex.ToString(); }
+
+            return false;
+        }
+
+        public MySqlConnectorBase(string server = "127.0.0.1", int port = 3309, string user = "root", string password = "")
         {
             this.server = server;
             this.port = port;
@@ -105,12 +122,20 @@ namespace TraningDAL.InterfaceBasics
             this.password = password;
         }
 
-        public static DataTable GetData(string server = "root", int port = 3309, string user = "root", string password = "", string selectComand = "")
+        public static DataTable GetData(string server = "127.0.0.1", int port = 3309, string user = "root", string password = "", string selectCommand = "")
         {
             var con = new MySqlConnectorEmpty(server, port, user, password);
             if (con.Connect())
-                return con.GetData(selectComand);
+                return con.GetData(selectCommand);
             return null;
+        }
+
+        public static bool Command(string server = "127.0.0.1", int port = 3309, string user = "root", string password = "", string command = "")
+        {
+            var con = new MySqlConnectorEmpty(server, port, user, password);
+            if (con.Connect())
+                return con.Command(command);
+            return false;
         }
 
         public class MySqlConnectorEmpty : MySqlConnectorBase
