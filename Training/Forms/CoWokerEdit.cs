@@ -52,9 +52,9 @@ namespace Training.Forms
                 var type = this.comboBox1.SelectedIndex + 1;
                 var sex = this.comboBox2.SelectedIndex + 1;
 
-                var comm = string.Concat("insert into co_worker(first_name,second_name,id_qualification_co_worker_type,id_sex_type,age) values('", fn, "','", sn, "',", type.ToString(), ",", sex.ToString(), ",", age.ToString(), ")");
+                var comm = string.Concat("insert into co_worker(first_name,second_name,id_qualification_co_worker_type,id_sex_type,age) values('", fn, "','", sn, "',", type, ",", sex, ",", age, ")");
                 if (this.rowEdit != null)
-                    comm = string.Concat("update co_worker set first_name='", fn, "', second_name='", sn, "', id_qualification_co_worker_type=", type.ToString(), ", id_sex_type=", sex.ToString(), ", age=", age.ToString(), " where id=", this.rowEdit["id"].ToString());
+                    comm = string.Concat("update co_worker set first_name='", fn, "', second_name='", sn, "', id_qualification_co_worker_type=", type, ", id_sex_type=", sex, ", age=", age, " where id=", this.rowEdit["id"]);
                 if (!Program.Command(comm))
                     return;
 

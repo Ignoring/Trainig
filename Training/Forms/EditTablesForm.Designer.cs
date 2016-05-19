@@ -62,6 +62,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EditTablesForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditTablesForm";
             this.ResumeLayout(false);

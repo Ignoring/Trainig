@@ -37,9 +37,10 @@ namespace Training
             this.DBview.AllowUserToAddRows = false;
             this.DBview.AutoGenerateColumns = false;
             this.DBview.AllowUserToDeleteRows = false;
+            this.DBview.MultiSelect = false;
+            this.DBview.ReadOnly = true;
             this.DBview.RowHeadersWidth = 5;
             this.DBview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.DBview.ReadOnly = true;
 
             this.DBviewFirstName.DataPropertyName = "first_name";
             this.DBviewSecondName.DataPropertyName = "second_name";
@@ -54,11 +55,17 @@ namespace Training
             this.ToolButtonDelete.Image = new Bitmap(Assembly.GetEntryAssembly().GetManifestResourceStream("Training.Images.Delete.png"));
             this.ToolButtonTest.Image = new Bitmap(Assembly.GetEntryAssembly().GetManifestResourceStream("Training.Images.Test.jpg"));
             this.ToolButtonReport.Image = new Bitmap(Assembly.GetEntryAssembly().GetManifestResourceStream("Training.Images.Report.jpg"));
+            this.ToolButtonRefresh.Image = new Bitmap(Assembly.GetEntryAssembly().GetManifestResourceStream("Training.Images.Refresh.png"));
             this.ToolButtonEdit.Enabled = this.ToolButtonDelete.Enabled = this.ToolButtonTest.Enabled = this.ToolButtonReport.Enabled = false;
 
             this.ToolButtonAdd.Click += new EventHandler(this.ToolClick);
             this.ToolButtonEdit.Click += new EventHandler(this.ToolClick);
             this.ToolButtonDelete.Click += new EventHandler(this.ToolClickDelete);
+
+            this.ToolButtonTest.Click += new EventHandler(this.ToolButtonTestClick);
+            this.ToolButtonReport.Click += new EventHandler(this.ToolButtonReportClick);
+
+            this.ToolButtonRefresh.Click += new EventHandler(this.ToolButtonRefreshClick);
 
             this.Treeview.ExpandAll();
             // Hookup a DrawMode Event Handler
@@ -77,6 +84,31 @@ namespace Training
             this.CoWorkerQualifications.Click += new EventHandler(this.MenuEditClick);
             this.Normativs.Click += new EventHandler(this.MenuEditClick);
             this.SportQualifications.Click += new EventHandler(this.MenuEditClick);
+        }
+
+        private void ToolButtonTestClick(object sender, EventArgs e)
+        {
+            var row = this.getSelectedRow();
+            var frm = new Forms.Exam(row != null ? (row.DataBoundItem as DataRowView).Row : null);
+            frm.Owner = this;
+            frm.ShowDialog();
+        }
+
+        private void ToolButtonReportClick(object sender, EventArgs e)
+        {
+            var row = this.getSelectedRow();
+            var frm = new Forms.Report();
+            frm.Owner = this;
+            frm.Icon = new Icon(Assembly.GetEntryAssembly().GetManifestResourceStream("Training.Images.Report.ico"));
+            frm.CreateGraphics(row == null ? null : new DataRow[] { (row.DataBoundItem as DataRowView).Row });
+            frm.ShowDialog();
+        }
+
+        private void ToolButtonRefreshClick(object sender, EventArgs e)
+        {
+            var row = this.getSelectedRow();
+            int oldIndex = row != null ? row.Index : 0;
+            this.RefreshData(oldIndex);
         }
 
         private void AboutClick(object sender, EventArgs e)
@@ -135,7 +167,8 @@ namespace Training
 
         private void ToolClick(object sender, EventArgs e)
         {
-            var frm = new Forms.CoWoker(sender == this.ToolButtonEdit && this.DBview.CurrentRow != null ? (this.DBview.CurrentRow.DataBoundItem as DataRowView).Row : null);
+            var row = this.getSelectedRow();
+            var frm = new Forms.CoWoker(sender == this.ToolButtonEdit && row != null ? (row.DataBoundItem as DataRowView).Row : null);
             var bitMap = new Bitmap(Assembly.GetEntryAssembly().GetManifestResourceStream(string.Concat("Training.Images.", (sender == this.ToolButtonEdit ? "Edit.jpg" : "Add.png"))));
             bitMap.MakeTransparent(Color.White);
             frm.Icon = Icon.FromHandle(bitMap.GetHicon());
@@ -145,10 +178,11 @@ namespace Training
 
         private void ToolClickDelete(object sender, EventArgs e)
         {
-            var row = this.DBview.CurrentRow != null ? (this.DBview.CurrentRow.DataBoundItem as DataRowView).Row : null;
+            var rowGrid = this.getSelectedRow();
+            var row = rowGrid != null ? (rowGrid.DataBoundItem as DataRowView).Row : null;
             if (row == null)
                 return;
-            var comm = string.Concat("delete from co_worker where id=", row["id"].ToString());
+            var comm = string.Concat("delete from co_worker where id=", row["id"]);
             if (!Program.Command(comm))
                 return;
             row.Delete();
@@ -164,15 +198,19 @@ namespace Training
 
         private void OkClick(object sender, EventArgs e)
         {
+            var row = this.getSelectedRow();
+            int oldIndex = row != null ? row.Index : 0;
+            this.RefreshData(oldIndex);
             MessageBox.Show("Save settings");
         }
 
         public void RefreshData(int index)
         {
             var source = new BindingSource();
-            source.DataSource = Program.GetData("SELECT c.*, t.name, s.name as sex_name FROM co_worker c left outer join co_worker_qualification_type t on c.id_qualification_co_worker_type=t.Id left outer join sex_type s on c.id_sex_type=s.Id");
+            source.DataSource = Program.GetData("SELECT c.*, t.name, s.name as sex_name FROM co_worker c left outer join co_worker_qualification_type t on c.id_qualification_co_worker_type=t.Id left outer join sex_type s on c.id_sex_type=s.Id where c.id > 0");
             this.setFilter(this.Treeview.SelectedNode);
             this.DBview.DataSource = source;
+
             if (this.DBview.Rows.Count > 0 && index < this.DBview.Rows.Count)
                 this.DBview.Rows[index == -1 ? this.DBview.Rows.Count - 1: index].Selected = true;
             this.DBview.Select();
@@ -180,7 +218,12 @@ namespace Training
 
         private void DBviewSelectionChanged(object sender, EventArgs e)
         {
-            this.ToolButtonEdit.Enabled = this.ToolButtonDelete.Enabled = this.ToolButtonTest.Enabled = this.ToolButtonReport.Enabled = this.DBview.CurrentRow != null;
+            this.ToolButtonEdit.Enabled = this.ToolButtonDelete.Enabled = this.ToolButtonTest.Enabled = this.ToolButtonReport.Enabled = this.getSelectedRow() != null;
+        }
+
+        private DataGridViewRow getSelectedRow()
+        {
+            return this.DBview.SelectedRows != null && this.DBview.SelectedRows.Count > 0 ? this.DBview.SelectedRows[0] : null;
         }
     }
 }

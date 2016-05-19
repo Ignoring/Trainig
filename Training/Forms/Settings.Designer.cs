@@ -161,6 +161,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Settings";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings";
             this.ResumeLayout(false);

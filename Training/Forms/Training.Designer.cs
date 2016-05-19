@@ -28,12 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Training));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.File = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CoWorkerPositions = new System.Windows.Forms.ToolStripMenuItem();
+            this.CoWorkerQualifications = new System.Windows.Forms.ToolStripMenuItem();
+            this.Normativs = new System.Windows.Forms.ToolStripMenuItem();
+            this.SportQualifications = new System.Windows.Forms.ToolStripMenuItem();
+            this.Quit = new System.Windows.Forms.ToolStripMenuItem();
             this.Options = new System.Windows.Forms.ToolStripMenuItem();
             this.Help = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpHelp = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,12 +59,8 @@
             this.ToolButtonTest = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ToolButtonReport = new System.Windows.Forms.ToolStripButton();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Normativs = new System.Windows.Forms.ToolStripMenuItem();
-            this.CoWorkerPositions = new System.Windows.Forms.ToolStripMenuItem();
-            this.CoWorkerQualifications = new System.Windows.Forms.ToolStripMenuItem();
-            this.Quit = new System.Windows.Forms.ToolStripMenuItem();
-            this.SportQualifications = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolButtonRefresh = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DBview)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -84,6 +86,47 @@
             this.File.Name = "File";
             this.File.Size = new System.Drawing.Size(37, 20);
             this.File.Text = "File";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CoWorkerPositions,
+            this.CoWorkerQualifications,
+            this.Normativs,
+            this.SportQualifications});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // CoWorkerPositions
+            // 
+            this.CoWorkerPositions.Name = "CoWorkerPositions";
+            this.CoWorkerPositions.Size = new System.Drawing.Size(209, 22);
+            this.CoWorkerPositions.Text = "Co-worker position";
+            // 
+            // CoWorkerQualifications
+            // 
+            this.CoWorkerQualifications.Name = "CoWorkerQualifications";
+            this.CoWorkerQualifications.Size = new System.Drawing.Size(209, 22);
+            this.CoWorkerQualifications.Text = "Co-workers qualifications";
+            // 
+            // Normativs
+            // 
+            this.Normativs.Name = "Normativs";
+            this.Normativs.Size = new System.Drawing.Size(209, 22);
+            this.Normativs.Text = "Normatives";
+            // 
+            // SportQualifications
+            // 
+            this.SportQualifications.Name = "SportQualifications";
+            this.SportQualifications.Size = new System.Drawing.Size(209, 22);
+            this.SportQualifications.Text = "Sport qualifications";
+            // 
+            // Quit
+            // 
+            this.Quit.Name = "Quit";
+            this.Quit.Size = new System.Drawing.Size(97, 22);
+            this.Quit.Text = "Quit";
             // 
             // Options
             // 
@@ -127,14 +170,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DBview.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DBview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DBview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DBview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DBview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DBviewFirstName,
@@ -142,24 +185,24 @@
             this.DBviewPosition,
             this.DBviewSex,
             this.DBviewAge});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DBview.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DBview.DefaultCellStyle = dataGridViewCellStyle2;
             this.DBview.Location = new System.Drawing.Point(224, 54);
             this.DBview.Name = "DBview";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DBview.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DBview.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DBview.Size = new System.Drawing.Size(612, 288);
             this.DBview.TabIndex = 2;
             // 
@@ -203,7 +246,9 @@
             this.toolStripSeparator1,
             this.ToolButtonTest,
             this.toolStripSeparator2,
-            this.ToolButtonReport});
+            this.ToolButtonReport,
+            this.toolStripSeparator3,
+            this.ToolButtonRefresh});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(837, 31);
@@ -265,46 +310,19 @@
             this.ToolButtonReport.Size = new System.Drawing.Size(28, 28);
             this.ToolButtonReport.Text = "Report";
             // 
-            // editToolStripMenuItem
+            // toolStripSeparator3
             // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.CoWorkerPositions,
-            this.CoWorkerQualifications,
-            this.Normativs,
-            this.SportQualifications});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.editToolStripMenuItem.Text = "Edit";
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 31);
             // 
-            // Normativs
+            // ToolButtonRefresh
             // 
-            this.Normativs.Name = "Normativs";
-            this.Normativs.Size = new System.Drawing.Size(209, 22);
-            this.Normativs.Text = "Normatives";
-            // 
-            // CoWorkerPositions
-            // 
-            this.CoWorkerPositions.Name = "CoWorkerPositions";
-            this.CoWorkerPositions.Size = new System.Drawing.Size(209, 22);
-            this.CoWorkerPositions.Text = "Co-worker position";
-            // 
-            // CoWorkerQualifications
-            // 
-            this.CoWorkerQualifications.Name = "CoWorkerQualifications";
-            this.CoWorkerQualifications.Size = new System.Drawing.Size(209, 22);
-            this.CoWorkerQualifications.Text = "Co-workers qualifications";
-            // 
-            // Quit
-            // 
-            this.Quit.Name = "Quit";
-            this.Quit.Size = new System.Drawing.Size(152, 22);
-            this.Quit.Text = "Quit";
-            // 
-            // SportQualifications
-            // 
-            this.SportQualifications.Name = "SportQualifications";
-            this.SportQualifications.Size = new System.Drawing.Size(209, 22);
-            this.SportQualifications.Text = "Sport qualifications";
+            this.ToolButtonRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolButtonRefresh.Image = ((System.Drawing.Image)(resources.GetObject("ToolButtonRefresh.Image")));
+            this.ToolButtonRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolButtonRefresh.Name = "ToolButtonRefresh";
+            this.ToolButtonRefresh.Size = new System.Drawing.Size(28, 28);
+            this.ToolButtonRefresh.Text = "Refresg";
             // 
             // Training
             // 
@@ -359,6 +377,8 @@
         private System.Windows.Forms.ToolStripMenuItem CoWorkerQualifications;
         private System.Windows.Forms.ToolStripMenuItem Quit;
         private System.Windows.Forms.ToolStripMenuItem SportQualifications;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton ToolButtonRefresh;
     }
 }
 

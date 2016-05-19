@@ -97,7 +97,7 @@
             this.DBview.Size = new System.Drawing.Size(676, 316);
             this.DBview.TabIndex = 5;
             // 
-            // EditTablesForm
+            // TablesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -105,7 +105,8 @@
             this.ClientSize = new System.Drawing.Size(676, 352);
             this.Controls.Add(this.DBview);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "EditTablesForm";
+            this.Name = "TablesForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditTablesForm";
             this.toolStrip1.ResumeLayout(false);
